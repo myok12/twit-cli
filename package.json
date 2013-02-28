@@ -1,0 +1,21 @@
+{
+  "author": "Trevor Landau <landautrevor@gmail.com> (http://www.trevorlandau.net)",
+  "name": "twitter-cli",
+  "description": "Use twitter from the command line!",
+  "version": "0.0.1",
+  "homepage": "foo",
+  "repository": {
+    "type": "git",
+    "url": "foo"
+  },
+  "main": "twitter.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": ">=0.6.0"
+  }
+}

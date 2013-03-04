@@ -18,7 +18,7 @@ Do you love running applications from the command line? Do you love doing everyt
 > Omit the `--production` flag if you would like to run tests.
 
 ### Configuration
-Create a `.twitter-cli` dot file in your **home** directory with the following values that correspond to your Twitter application account. If you haven't created one yet, create it **[here](https://dev.twitter.com/apps)**. In order for `twit-cli` to work, you must set the application to **read, write, and direct messages**. Without that setting, `twit-cli` will fail to work and you will have to using Twitter from some application that is obviously inferior to cli.
+Create a `.twit-cli` dot file in your **home** directory with the following values that correspond to your Twitter application account. If you haven't created one yet, create it **[here](https://dev.twitter.com/apps)**. In order for `twit-cli` to work, you must set the application to **read, write, and direct messages**. Without that setting, `twit-cli` will fail to work and you will have to using Twitter from some application that is obviously inferior to cli.
 
 #### Example:
 

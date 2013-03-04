@@ -4,7 +4,12 @@
     "name": "Trevor Landau",
     "email": "landautrevor@gmail.com"
   },
-  "name": "twitter-cli",
+  "keywords": [
+    "twitter",
+    "cli",
+    "commandline"
+  ],
+  "name": "twit-cli",
   "description": "Use twitter from the command line!",
   "version": "0.0.1",
   "preferGlobal": "true",
@@ -23,7 +28,7 @@
     }
   ],
   "bin": {
-    "twitter-cli": "lib/twitter.js"
+    "twit-cli": "lib/twitter.js"
   },
   "scripts": {
     "test": "grunt test"

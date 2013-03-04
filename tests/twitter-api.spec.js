@@ -32,7 +32,7 @@ describe("Methods", function () {
     function StubTwitter() {
         this.api = new StubApi();
     }
-    StubTwitter.prototype = Twitter.prototype
+    StubTwitter.prototype = Twitter.prototype;
 
     beforeEach(function () {
         this.twitter = new StubTwitter();

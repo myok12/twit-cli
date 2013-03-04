@@ -1,3 +1,7 @@
+`version: 0.0.1`
+
+> Note: This is the first version of `twitter-cli` (duh), so at the moment you can only send tweets. Over the next coming weeks, many new features will be added. This means versions will be updated rapidly. Each new feature will be an uptick. So ready your `npm update` command! On with the `README`...
+
 # Intro
 Do you love running applications from the command line? Do you love doing everything with your keyboard? I sure do! If you don't then this tool probably isn't for you. The `twitter-cli` tool features all the great things you like to do on twitter, but in the comfort, love, and safety of your terminal.
 
@@ -9,10 +13,12 @@ Do you love running applications from the command line? Do you love doing everyt
 
 ## Getting started
 ### Install
-`npm install twitter-cli -g`
+`npm install twitter-cli -g --production`
+
+> Omit the `--production` flag if you would like to run tests.
 
 ### Configuration
-Create a `.twitter-cli` dot file in your home directory with the following values that correspond to your Twitter dev account. More info [here](http://).
+Create a `.twitter-cli` dot file in your home directory with the following values that correspond to your Twitter application account. If you haven't created one yet, create it **[here](https://dev.twitter.com/apps)**. In order for `twitter-cli` to work, you must set the application to **read, write, and direct messages**. Without that setting, `twitter-cli` will fail to work and you will have to using Twitter from some application that is obviously inferior to cli. 
 
 #### Example:
 
@@ -20,37 +26,38 @@ Create a `.twitter-cli` dot file in your home directory with the following value
 {
 	"consumer_key": "KEYZZZ",
 	"consumer_secret": "SECRETZZZ",
-	"access_token_key": "SECRET_KEYZZZZ",
+	"access_token": "SECRET_KEYZZZZ",
 	"access_token_secret": "SECRET_TOKENZZZ"
 }
 ```
 
 ## Command Reference
 
+### Getting started
+```
+Usage: twitter-cli [options] [command]
+
+  Commands:
+
+	tweet [options] <status> 140 character message.
+
+  Options:
+
+	-h, --help	  output usage information
+	-V, --version output the version number
+```
+
 ### Tweet
+```
+Usage: tweet [options] <status>
 
-Command: `twitter-cli tweet -m twitter-cli is awesome`
+  Options:
 
-Options:
-
-`-m --message`
+	-h, --help	  output usage information
+	-j, --json	  Get response as JSON
+	-v, --verbose Verbose logging
+```
 	
-> Sets the text to be tweeted
-
-### Status
-Command: `twitter-cli status`
-> Retrieves your latest tweet
-
-Options:
-
-`-n --number`
-> Retrieves the last tweets (newest first)
-
-`-j --json`
-> Prints tweets in `JSON` form
-
-### Search
-
 ## Tests
 
 Test ensure command line args work and retrieve data. To run tests, `clone` this project and type `npm test`.
@@ -59,4 +66,4 @@ Test ensure command line args work and retrieve data. To run tests, `clone` this
 [Trevor Landau](http://github.com/landau) (Author)
 
 ## Purpose
-I created `twitter-cli` mostly as an exercise to create a `node js` cli tool, but also so I could tweet while in my terminal. 
+I created `twitter-cli` mostly as an exercise to create a `node.js` cli tool, but also so I could tweet while in my terminal, because who doesn't want to do everything from the CLI. 

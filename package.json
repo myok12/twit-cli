@@ -11,7 +11,7 @@
   ],
   "name": "twit-cli",
   "description": "Use twitter from the command line!",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "preferGlobal": "true",
   "homepage": "http://",
   "repository": {

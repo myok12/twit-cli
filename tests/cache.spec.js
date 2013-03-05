@@ -39,25 +39,26 @@ describe("Cache", function () {
     });
 
     it("should save data to a file", function () {
-        this.cache.put(key);
+        this.cache.put(key, key);
         fs.existsSync(filepath).should.equal(true);
         fs.statSync(filepath).isFile().should.equal(true);
     });
 
     it("should retrieve cached data from a file", function () {
-        this.cache.put(key);
+        this.cache.put(key, key);
+        fs.existsSync(filepath).should.equal(true);
         var data = this.cache.get(key);
         data.foo.should.equal("bar");
     });
 
     it("should delete a cached file if it is exists", function () {
-        this.cache.put(key);
+        this.cache.put(key, key);
         this.cache.del(key);
         fs.existsSync(filepath).should.not.equal(true);
     });
 
     it("should delete a cached file if it is expired", function (done) {
-        this.cache.put(key);
+        this.cache.put(key, key);
         setTimeout(function () {
             var data = this.cache.get(key);
             should.not.exists(data);
@@ -66,7 +67,7 @@ describe("Cache", function () {
     });
 
     it("should clean up all files", function () {
-        this.cache.put(key);
+        this.cache.put(key, key);
         Cache.clean();
         fs.readdirSync(dir).length.should.equal(0);
     });

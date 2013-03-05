@@ -61,7 +61,7 @@ Usage: tweet [options] <status>
 
 ### Timeline
 
-> If you choose to omit screenname, the tweets displayed will relate to your timeline. 
+If you choose to omit screenname, the tweets displayed will relate to your timeline.
 
 ```
   Usage: timeline [options] [screenname]
@@ -75,7 +75,7 @@ Usage: tweet [options] <status>
     -r, --rt               Show retweets [screenname required]
     -i, --include          Include replies
 ```
-
+> Note: responses are cached for ~30 sec so rate limit is not exceeded.
 
 ## Tests
 
@@ -88,3 +88,11 @@ Looking to contribute to this awesome cli action? Please do! See the [contributi
 
 ## Purpose
 I created `twit-cli` mostly as an exercise to create a `node.js` cli tool, but also so I could tweet while in my terminal, because who doesn't want to do everything from the CLI.
+
+## Change Log
+### 0.0.2
+- Success message on tweet
+- Ability to retrieve timeline
+### 0.0.1
+- Supports tweeting
+

@@ -9,8 +9,8 @@ var TwitterApi = require("twit"),
 
 // Test tools
 var sinon = require("sinon"),
-    should = require("should");
-
+    should = require("should"),
+    Cache = require(path.join("..", "lib", "cache"));
 
 describe("Twitter instantiation", function () {
     it("should throw an error if no config is provided", function () {
@@ -29,6 +29,7 @@ describe("Methods", function () {
 
     function StubTwitter() {
         this.api = new StubApi();
+        this.cache = new Cache(1000 * 30);
     }
     StubTwitter.prototype = Twitter.prototype;
 
@@ -36,8 +37,11 @@ describe("Methods", function () {
         this.twitter = new StubTwitter();
     });
 
+    afterEach(function () {
+        Cache.clean();
+    });
+
     describe("tweet", function () {
-        // JSON fixtures
         var json = require(path.join(__dirname, "fixtures", "status-update.json"));
         sinon.stub(StubApi.prototype, "post", function (path, param, fn) {
             fn(null, json);
@@ -56,8 +60,6 @@ describe("Methods", function () {
     })
 
     describe("getTimeline", function () {
-        // JSON fixtures
-
         it("should reply with tweets", function (done) {
             var json = require(path.join(__dirname, "fixtures", "timeline.json"));
             sinon.stub(StubApi.prototype, "get", function (path, param, fn) {

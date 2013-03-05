@@ -45,8 +45,6 @@ Usage: twit-cli [options] [command]
 
     -h, --help     output usage information
     -V, --version  output the version number
-    -j, --json     Get response as JSON
-    -v, --verbose  Verbose logging
 ```
 
 ### Tweet
@@ -61,12 +59,32 @@ Usage: tweet [options] <status>
     -c, --count    Count characters in Tweet (will not send)
 ```
 
+### Timeline
+
+> If you choose to omit screenname, the tweets displayed will relate to your timeline. 
+
+```
+  Usage: timeline [options] [screenname]
+
+  Options:
+
+    -h, --help             output usage information
+    -j, --json             Get response as JSON
+    -v, --verbose          Verbose logging
+    -l, --limit [integer]  Number of statuses to return
+    -r, --rt               Show retweets [screenname required]
+    -i, --include          Include replies
+```
+
+
 ## Tests
 
 Test ensure command line args work and retrieve data. To run tests, `clone` this project and type `npm test`.
 
 ## Contributers
 [Trevor Landau](http://github.com/landau) (Author)
+
+Looking to contribute to this awesome cli action? Please do! See the [contributing wiki](http://).
 
 ## Purpose
 I created `twit-cli` mostly as an exercise to create a `node.js` cli tool, but also so I could tweet while in my terminal, because who doesn't want to do everything from the CLI.

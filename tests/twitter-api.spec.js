@@ -11,8 +11,6 @@ var TwitterApi = require("twit"),
 var sinon = require("sinon"),
     should = require("should");
 
-// JSON fixtures
-var statusUpdateJSON = require(path.join(__dirname, "fixtures", "status-update.json"));
 
 describe("Twitter instantiation", function () {
     it("should throw an error if no config is provided", function () {
@@ -39,18 +37,38 @@ describe("Methods", function () {
     });
 
     describe("tweet", function () {
+        // JSON fixtures
+        var json = require(path.join(__dirname, "fixtures", "status-update.json"));
         sinon.stub(StubApi.prototype, "post", function (path, param, fn) {
-            fn(null, statusUpdateJSON);
+            fn(null, json);
         });
 
         it("should reply with a tweet object", function (done) {
             this.twitter.tweet("Derp!", function (err, tweet) {
-                tweet.id.should.equal(statusUpdateJSON.id);
-                tweet.user.id.should.equal(statusUpdateJSON.user.id);
+                tweet.id.should.equal(json.id);
+                tweet.user.id.should.equal(json.user.id);
                 tweet.created_at.should.be.instanceOf(Date);
                 done(err);
 
                 StubApi.prototype.post.restore();
+            });
+        });
+    })
+
+    describe("getTimeline", function () {
+        // JSON fixtures
+
+        it("should reply with tweets", function (done) {
+            var json = require(path.join(__dirname, "fixtures", "timeline.json"));
+            sinon.stub(StubApi.prototype, "get", function (path, param, fn) {
+                fn(null, json);
+            });
+
+            this.twitter.getTimeline(function (err, tweets) {
+                tweets.length.should.be.above(0);
+                done(err);
+
+                StubApi.prototype.get.restore();
             });
         });
     })

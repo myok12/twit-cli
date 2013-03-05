@@ -36,7 +36,9 @@
   "dependencies": {
     "colors": "~0.6.0-1",
     "commander": "~1.1.1",
-    "twit": "~1.1.3"
+    "twit": "~1.1.3",
+    "cli-table": "~0.2.0",
+    "moment": "~2.0.0"
   },
   "devDependencies": {
     "grunt": "~0.4.0",

@@ -37,6 +37,7 @@ Usage: twit-cli [options] [command]
 
   Commands:
 
+    timeline [options] [screenname] Get timeline data
     tweet [options] <status> 140 character message.
 
   Options:

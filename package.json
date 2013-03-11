@@ -1,6 +1,11 @@
 {
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "name": "twit-cli",
   "main": "lib/twitter.js",
+  "bin": {
+    "twit-cli": "lib/twitter.js"
+  },
+  "preferGlobal": "true",
   "author": {
     "name": "Trevor Landau",
     "email": "landautrevor@gmail.com"
@@ -10,9 +15,7 @@
     "cli",
     "commandline"
   ],
-  "name": "twit-cli",
   "description": "Use twitter from the command line!",
-  "preferGlobal": "true",
   "homepage": "http://",
   "repository": {
     "type": "git",
@@ -27,9 +30,6 @@
       "url": "https://github.com/landau/twit-cli/LICENSE-MIT"
     }
   ],
-  "bin": {
-    "twit-cli": "lib/twitter.js"
-  },
   "scripts": {
     "test": "grunt test"
   },
@@ -38,7 +38,8 @@
     "commander": "~1.1.1",
     "twit": "~1.1.5",
     "cli-table": "~0.2.0",
-    "moment": "~2.0.0"
+    "moment": "~2.0.0",
+    "fscache": "0.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.0",

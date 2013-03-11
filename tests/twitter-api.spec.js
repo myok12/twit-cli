@@ -10,7 +10,7 @@ var TwitterApi = require("twit"),
 // Test tools
 var sinon = require("sinon"),
     should = require("should"),
-    Cache = require(path.join("..", "lib", "cache"));
+    Cache = require("fscache");
 
 describe("Twitter instantiation", function () {
     it("should throw an error if no config is provided", function () {
@@ -29,7 +29,7 @@ describe("Methods", function () {
 
     function StubTwitter() {
         this.api = new StubApi();
-        this.cache = new Cache(1000 * 30);
+        this.cache = Cache.createSync(1000 * 30, path.join(__dirname, ".cache"));
     }
     StubTwitter.prototype = Twitter.prototype;
 
@@ -38,7 +38,7 @@ describe("Methods", function () {
     });
 
     afterEach(function () {
-        Cache.clean();
+        this.twitter.cache.cleanSync();
     });
 
     describe("tweet", function () {

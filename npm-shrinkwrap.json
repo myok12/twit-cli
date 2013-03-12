@@ -1,6 +1,6 @@
 {
   "name": "twit-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "colors": {
       "version": "0.6.0-1"
@@ -31,6 +31,14 @@
     },
     "moment": {
       "version": "2.0.0"
+    },
+    "fscache": {
+      "version": "0.0.1",
+      "dependencies": {
+        "async": {
+          "version": "0.2.6"
+        }
+      }
     },
     "should": {
       "version": "1.2.2"

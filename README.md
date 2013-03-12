@@ -100,6 +100,9 @@ Test ensure command line args work and retrieve data. To run tests, `clone` this
 > `grunt-cli` required.
 
 ## Change Log
+### 0.0.3
+- Extracted caching into npm module - [fscache](https://github.com/landau/fscache)
+
 ### 0.0.2
 - Success message on tweet
 - Ability to retrieve timeline

@@ -1,4 +1,4 @@
-`version: 0.0.2`
+`version: 0.0.5`
 
 # Intro
 Do you love running applications from the command line? Do you love doing everything with your keyboard? I sure do! If you don't then this tool probably isn't for you. The `twit-cli` tool features all the great things you like to do on twitter, but in the comfort, love, and safety of your terminal.

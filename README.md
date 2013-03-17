@@ -65,6 +65,25 @@ twit-cli tweet "I love #twitcli"
 twit-cli tweet "I love #twitcli" -c # outputs 15
 ```
 
+### Retweet
+
+```
+Usage: retweet [options] <id>
+
+  Options:
+
+    -h, --help     output usage information
+    -j, --json     Get response as JSON
+    -v, --verbose  Verbose logging
+    -d, --delete   Delete a retweet
+```
+####Examples:
+
+```
+twit-cli retweet 313334974159917057
+twit-cli retweet 313381278290415618 -d // Deletes a retweet. Same as deleting a tweet.
+```
+
 
 ### Timeline
 
@@ -131,6 +150,27 @@ Delete a tweet
 ```
 twit-cli delete 312382752102154240
 ```
+
+
+### Favorite
+
+
+```
+Usage: fav [options] <id>
+
+  Options:
+
+    -h, --help     output usage information
+    -j, --json     Get response as JSON
+    -v, --verbose  Verbose logging
+    -d, --delete   Delete a favorite
+```
+
+####Examples:
+```
+twit-cli fav 312382752102154240
+twit-cli fav 312382752102154240 -d
+```
  
 ## Tests
 
@@ -139,6 +179,10 @@ Test ensure command line args work and retrieve data. To run tests, `clone` this
 > `grunt-cli` required.
 
 ## Change Log
+
+### 0.0.5
+- Favorite and unfavorite tweets
+- Retweet, Delete retweet
 
 ### 0.0.4
 - Ability to delete and follow

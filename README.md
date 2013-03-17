@@ -92,6 +92,45 @@ twit-cli timeline @trevor_landau -l 5 -r
 ```
 
 > Note: A command's response is cached for ~30 sec. This is to reduce the likelihood of exceeding Twitter's api rate limit. This only defends against identical commands.
+
+
+### Follow
+
+```
+  Usage: follow [options] <user>
+
+  Options:
+
+    -h, --help     output usage information
+    -j, --json     Get response as JSON
+    -v, --verbose  Verbose logging
+    -n, --notify   Receive notifications for this user
+```
+
+####Examples:
+```
+twit-cli follow @trevor_landau
+twit-cli follow @trevor_landau -n
+```
+
+### Delete
+
+Delete a tweet
+
+```
+  Usage: delete [options] <id>
+
+  Options:
+
+    -h, --help     output usage information
+    -j, --json     Get response as JSON
+    -v, --verbose  Verbose logging
+```
+
+####Examples:
+```
+twit-cli delete 312382752102154240
+```
  
 ## Tests
 
@@ -100,6 +139,10 @@ Test ensure command line args work and retrieve data. To run tests, `clone` this
 > `grunt-cli` required.
 
 ## Change Log
+
+### 0.0.4
+- Ability to delete and follow
+
 ### 0.0.3
 - Extracted caching into npm module - [fscache](https://github.com/landau/fscache)
 

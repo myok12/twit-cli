@@ -41,23 +41,52 @@ describe("Methods", function () {
         this.twitter.cache.cleanSync();
     });
 
-    describe("tweet", function () {
+    describe("tweeting", function () {
         var json = require(path.join(__dirname, "fixtures", "status-update.json"));
-        sinon.stub(StubApi.prototype, "post", function (path, param, fn) {
-            fn(null, json);
+        beforeEach(function () {
+            sinon.stub(StubApi.prototype, "post", function (path, param, fn) {
+                fn(null, json);
+            });
         });
 
-        it("should reply with a tweet object", function (done) {
+        afterEach(function () {
+            StubApi.prototype.post.restore();
+        });
+
+        it("should respond with a tweet object after tweeting", function (done) {
             this.twitter.tweet("Derp!", function (err, tweet) {
                 tweet.id.should.equal(json.id);
                 tweet.user.id.should.equal(json.user.id);
                 tweet.created_at.should.be.instanceOf(Date);
                 done(err);
-
-                StubApi.prototype.post.restore();
             });
         });
-    })
+
+        xit("should respond with a tweet object after replying", function (done) {
+            this.twitter.tweet("Derp! @derp", 123123, function (err, tweet) {
+                tweet.id.should.equal(json.id);
+                tweet.user.id.should.equal(json.user.id);
+                tweet.created_at.should.be.instanceOf(Date);
+                done(err);
+            });
+        });
+
+        xit("should respond with an error object after replying without a screenname", function (done) {
+            this.twitter.tweet("Derp!", 123123, function (err, tweet) {
+                err.should.be.instanceOf(Error)
+                done();
+            });
+        });
+
+        it("should respond with a tweet object after deleting", function (done) {
+            this.twitter.remove(1231231231, function (err, tweet) {
+                tweet.id.should.equal(json.id);
+                tweet.user.id.should.equal(json.user.id);
+                tweet.created_at.should.be.instanceOf(Date);
+                done(err);
+            });
+        });
+    });
 
     describe("getTimeline", function () {
         it("should reply with tweets", function (done) {
